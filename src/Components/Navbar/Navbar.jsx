@@ -5,7 +5,7 @@ export const Navbar = () => {
     <nav class="navbar">
       <div class="navbar-wrapper">
         <div class="ecom-title">
-          <a href="/" class="ecom-name">
+          <a href="" class="ecom-name">
             CricStore
           </a>
         </div>
@@ -19,7 +19,7 @@ export const Navbar = () => {
           />
         </div>
         <div class="user-activity-details">
-          <a href="/">
+          <a href="">
             {" "}
             <img
               src="Assets/profile.png"
