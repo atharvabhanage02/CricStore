@@ -6,9 +6,9 @@ import { ProductPage } from "./Pages/ProductListing/ProductPage";
 function App() {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/mock" element={<MockMan />} />
-      </Routes>
+      </Routes> */}
       <ProductPage />
     </div>
   );
