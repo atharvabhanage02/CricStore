@@ -9,7 +9,7 @@ export const Navbar = () => {
             CricStore
           </a>
         </div>
-        
+
         <div class="search-container">
           <i class="fa fa-search"></i>
           <input
@@ -46,6 +46,7 @@ export const Navbar = () => {
               4
             </span>
           </div>
+          
         </div>
       </div>
     </nav>
