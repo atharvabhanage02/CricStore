@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/mock" element={<MockMan />} />
-        <Route path="/" element={<ProductPage />} />
       </Routes>
+      <ProductPage />
     </div>
   );
 }
