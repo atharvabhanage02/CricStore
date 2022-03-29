@@ -18,6 +18,7 @@ export const Navbar = () => {
             placeholder="Search"
           />
         </div>
+        
         <div class="user-activity-details">
           <a href="">
             {" "}
