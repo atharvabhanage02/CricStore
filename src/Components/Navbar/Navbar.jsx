@@ -28,18 +28,18 @@ export const Navbar = () => {
             />
           </a>
           <div class="badges">
-            <Link to="/Wishlist">
+            {/* <Link to="/Wishlist"> */}
               <div class="icon wishlist-icon far fa-heart"></div>
-            </Link>
+            {/* </Link> */}
 
             <span class="badge-count badge-count-right badge-circle-blue">
               4
             </span>
           </div>
           <div class="badges">
-            <Link to="/Cart">
+            {/* <Link to="/Cart"> */}
               <div class="icon wishlist-icon fas fa-shopping-cart"></div>
-            </Link>
+            {/* </Link> */}
             <span class="badge-count badge-count-right badge-circle-orange">
               4
             </span>
