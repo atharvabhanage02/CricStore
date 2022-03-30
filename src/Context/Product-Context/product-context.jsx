@@ -3,14 +3,29 @@ import {
   useContext,
   useState,
   useEffect,
+  useReducer
 } from "react";
 import axios from "axios";
+import { Compose , filterSortBy , categoryFilter , ratingsFilter } from "../../Utils/filter";
+import { filterProductsReducer } from "../filter-reducer";
 
 const ProductContext = createContext();
 const useProducts = () => useContext(ProductContext);
 
 const ProductProvider = ({ children }) => {
   const [productsList, setProductsList] = useState([]);
+  const [state, dispatch] = useReducer(filterProductsReducer, {
+    sortBy: "",
+    category: { Bats: false, Balls: false },
+    rating: "",
+  });
+
+    const finalFilteredProducts = Compose(
+      state,
+      filterSortBy,
+      categoryFilter,
+      ratingsFilter
+    )(productsList);
 
   useEffect(() => {
     (async () => {
@@ -27,7 +42,7 @@ const ProductProvider = ({ children }) => {
 
   return (
     <ProductContext.Provider
-      value={{productsList}}
+      value={{  products: finalFilteredProducts, state, dispatch }}
     >
       {children}
     </ProductContext.Provider>

@@ -2,11 +2,11 @@ import React from "react";
 import { useProducts } from "../../Context/Product-Context/product-context";
 import "./productcard.css";
 export const ProductCard = () => {
-  const { productsList } = useProducts();
+  const { products } = useProducts();
   return (
     <div className="all-products">
-      {productsList &&
-        productsList.map((item) => (
+      {products &&
+        products.map((item) => (
           <div className="basic-vertical-card">
             <div className="card-image-container">
               <img src={item.image} className="card-image" alt="" />
