@@ -2,6 +2,9 @@
   padding: 0;
   margin: 0;
 }
+:root {
+  --card-icon-wishList: red;
+}
 .basic-vertical-card {
   width: 13rem;
 }
@@ -13,13 +16,13 @@
   margin: 1rem;
 }
 .card-image {
-  height: 170px;
+  height: 10.6rem;
   width: 80%;
   object-fit: contain;
 }
-.icon{
+.icon {
   cursor: pointer;
 }
-.card-icon{
-  color: red;
+.card-icon {
+  color: var(--card-icon-wishList);
 }

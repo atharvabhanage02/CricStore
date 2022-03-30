@@ -24,7 +24,6 @@ const ProductProvider = ({ children }) => {
       }
     })();
   }, []);
-  console.log("context products", productsList);
 
   return (
     <ProductContext.Provider
