@@ -1,1 +1,25 @@
-    
+* {
+  padding: 0;
+  margin: 0;
+}
+.basic-vertical-card {
+  width: 13rem;
+}
+.all-products {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1rem;
+}
+.card-image {
+  height: 170px;
+  width: 80%;
+  object-fit: contain;
+}
+.icon{
+  cursor: pointer;
+}
+.card-icon{
+  color: red;
+}
