@@ -15,12 +15,18 @@ const filterSortBy = (state, data) => {
 };
 
 const categoryFilter = (state, data) => {
-  const categoriesArray = Object.keys(state.category).filter(
+  const categoriesPresent = Object.keys(state.category).filter(
     (value) => state.category[value] === true
   );
-  if (categoriesArray.length === 0) return data;
-  return data.filter((product) => categoriesArray.includes(product.category));
+  if (categoriesPresent.length === 0) return data;
+  return data.filter((product) => categoriesPresent.includes(product.category));
 };
+
+const inStockProducts = (state, data) =>
+  state.outOfStock ? data.filter((item) => item.inStock === true) : data;
+
+const fastDeliveryProducts = (state, data) =>
+  state.fastDelivery ? data.filter((item) => item.fastDelivery === true) : data;
 
 const ratingsFilter = (state, data) => {
   switch (state.rating) {
@@ -37,4 +43,4 @@ const ratingsFilter = (state, data) => {
   }
 };
 
-export { Compose, filterSortBy, categoryFilter, ratingsFilter };
+export { Compose, filterSortBy, categoryFilter, ratingsFilter , inStockProducts , fastDeliveryProducts };

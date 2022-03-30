@@ -6,7 +6,7 @@ import {
   useReducer
 } from "react";
 import axios from "axios";
-import { Compose , filterSortBy , categoryFilter , ratingsFilter } from "../../Utils/filter";
+import { Compose , filterSortBy , categoryFilter , ratingsFilter, inStockProducts, fastDeliveryProducts } from "../../Utils/filter";
 import { filterProductsReducer } from "../filter-reducer";
 
 const ProductContext = createContext();
@@ -18,13 +18,17 @@ const ProductProvider = ({ children }) => {
     sortBy: "",
     category: { Bats: false, Balls: false },
     rating: "",
+    outOfStock: false,
+    fastDelivery: false,
   });
 
     const finalFilteredProducts = Compose(
       state,
       filterSortBy,
       categoryFilter,
-      ratingsFilter
+      ratingsFilter,
+      inStockProducts,
+      fastDeliveryProducts
     )(productsList);
 
   useEffect(() => {

@@ -7,7 +7,13 @@ export const ProductCard = () => {
     <div className="all-products">
       {products &&
         products.map((item) => (
-          <div className="basic-vertical-card">
+          <div
+            className={
+              item.inStock
+                ? "basic-vertical-card"
+                : "basic-vertical-card card-with-text-overlay"
+            }
+          >
             <div className="card-image-container">
               <img src={item.image} className="card-image" alt="" />
             </div>
@@ -32,6 +38,9 @@ export const ProductCard = () => {
                 Add to Cart
               </button>
             </div>
+            {!item.inStock ? (
+              <span className="out-of-stock">Out Of Stock</span>
+            ) : null}
           </div>
         ))}
     </div>

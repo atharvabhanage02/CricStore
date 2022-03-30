@@ -2,6 +2,7 @@ import { useProducts } from "../../Context/Product-Context/product-context";
 import "./sidebar.css";
 export const Sidebar = () => {
   const { state, dispatch } = useProducts();
+  const productCategories = ["Bats", "Balls"]
   return (
     <div>
       <aside className="sidebar">
@@ -54,10 +55,40 @@ export const Sidebar = () => {
             </label>
           </div>
         </div>
+        <h3 className="filter-feature">Check Availability</h3>
+        <div className="categories">
+          <label class="input-select">
+            <input
+              type="checkbox"
+              id="stockCheck"
+              name="stockCheck"
+              className="checkbox-input"
+              value="CHECK_STOCK"
+              checked={state.outOfStock ? true : false}
+              onClick={(e) =>
+                dispatch({ type: e.target.value, payload: e.target.checked })
+              }
+            />
+            <span>Show Products in Stock</span>
+          </label>
+          <label class="input-select">
+            <input
+              type="checkbox"
+              id="stockfastDelivery"
+              className="checkbox-input"
+              value="CHECK_FAST_DELIVERY"
+              checked={state.fastDelivery ? true : false}
+              onClick={(e) =>
+                dispatch({ type: e.target.value, payload: e.target.checked })
+              }
+            />
+            <span>Products with Fast Delivery</span>
+          </label>
+        </div>
         <div className="product-category">
           <h3 className="filter-feature">Category</h3>
           <div className="categories">
-            {["Bats", "Balls"].map((category) => {
+            {productCategories.map((category) => {
               return (
                 <label className="input-select">
                   <input

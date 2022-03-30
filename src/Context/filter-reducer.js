@@ -3,6 +3,12 @@ export function filterProductsReducer(state, action) {
     case "SORT_BY":
       return { ...state, sortBy: action.payload };
 
+    case "CHECK_STOCK":
+      return { ...state, outOfStock: action.payload };
+
+    case "CHECK_FAST_DELIVERY":
+      return { ...state, fastDelivery: action.payload };
+      
     case "FILTER_BY_CATEGORY":
       return {
         ...state,
