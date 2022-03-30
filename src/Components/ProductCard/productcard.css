@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --card-icon-wishList: red;
+}
+.basic-vertical-card {
+  width: 13rem;
+}
+.all-products {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1rem;
+}
+.card-image {
+  height: 10.6rem;
+  width: 80%;
+  object-fit: contain;
+}
+.icon {
+  cursor: pointer;
+}
+.card-icon {
+  color: var(--card-icon-wishList);
+}
