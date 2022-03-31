@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    /* box-sizing: border-box; */
+}
+body{
+    font-family: 'Lato', sans-serif;
+}
+.main-wrapper{
+    display: flex;
+}
+/* Sidebar */
+.sidebar{
+    position: fixed;
+    flex-grow: 0;
+    top: 5rem;
+    height: 100%;
+    border-right: 2px solid black;
+    padding: 1.25rem;
+    width: 12rem;
+}
+.products-list{
+    flex-grow: 1;
+    margin-top: 5.62rem;
+    margin-left: 15.65rem;
+    padding: 1.25rem 3.12rem;
+}
+/* Sidebar Items */
+.product-filter{
+    display: flex;
+    justify-content: space-between;
+    /* gap: 10px; */
+    margin-bottom: 0.5rem;
+}
+.product-filter>a{
+    text-decoration: none;
+    color: black;
+}
+/* Slider */
+.slider-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.slider{
+    max-width: 25rem;
+}
+.slider-value{
+    text-align: center;
+}
+/*  Slider ends */
+.categories{
+    display: flex;
+    flex-direction: column;
+}
+label>span{
+    font-size:15px;
+}
+.input-select{
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    column-gap: 10px;
+}
+.filter-feature{
+    margin: 13px 2px;
+}
+.slider{
+    max-width: 200px;
+}

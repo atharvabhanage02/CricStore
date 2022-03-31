@@ -2,12 +2,18 @@ import React from "react";
 import { useProducts } from "../../Context/Product-Context/product-context";
 import "./productcard.css";
 export const ProductCard = () => {
-  const { productsList } = useProducts();
+  const { products } = useProducts();
   return (
     <div className="all-products">
-      {productsList &&
-        productsList.map((item) => (
-          <div className="basic-vertical-card">
+      {products &&
+        products.map((item) => (
+          <div
+            className={
+              item.inStock
+                ? "basic-vertical-card"
+                : "basic-vertical-card card-with-text-overlay"
+            }
+          >
             <div className="card-image-container">
               <img src={item.image} className="card-image" alt="" />
             </div>
@@ -32,6 +38,9 @@ export const ProductCard = () => {
                 Add to Cart
               </button>
             </div>
+            {!item.inStock ? (
+              <span className="out-of-stock">Out Of Stock</span>
+            ) : null}
           </div>
         ))}
     </div>

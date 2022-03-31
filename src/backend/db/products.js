@@ -19,6 +19,8 @@ export const products = [
     discount: "4",
     category: "Bats",
     rating: "4.5",
+    inStock: true,
+    fastDelivery: true,
   },
   {
     _id: uuid(),
@@ -33,6 +35,8 @@ export const products = [
     discount: "44",
     category: "Bats",
     rating: "3.5",
+    inStock: true,
+    fastDelivery: false,
   },
   {
     _id: uuid(),
@@ -47,6 +51,8 @@ export const products = [
     discount: "7",
     category: "Balls",
     rating: "4.2",
+    inStock: true,
+    fastDelivery: true,
   },
   {
     _id: uuid(),
@@ -61,6 +67,8 @@ export const products = [
     discount: "10",
     category: "Bats",
     rating: "3.1",
+    inStock: false,
+    fastDelivery: false,
   },
   {
     _id: uuid(),
@@ -75,6 +83,8 @@ export const products = [
     discount: "3",
     category: "Bats",
     rating: "2.6",
+    inStock: false,
+    fastDelivery: false,
   },
   {
     _id: uuid(),
@@ -89,6 +99,8 @@ export const products = [
     discount: "24",
     category: "Bats",
     rating: "1.2",
+    inStock: true,
+    fastDelivery: false,
   },
   {
     _id: uuid(),
@@ -103,5 +115,7 @@ export const products = [
     discount: "18",
     category: "Balls",
     rating: "3.0",
+    inStock: true,
+    fastDelivery: true,
   },
 ];
