@@ -1,0 +1,57 @@
+:root {
+  --btn-hover-color: #6666f3;
+}
+.wishlist-wrapper {
+  margin-top: 15vh;
+}
+.wishlist-container-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.horizontal-image-container:hover {
+  transform: none;
+}
+.wishlist-item {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  border-bottom: 1px solid grey;
+}
+.discounted-price {
+  margin-left: 0px;
+}
+.wishlist-product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.wishlist-product-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+.delete-icon {
+  padding: 5px;
+}
+.delete-icon:hover {
+  color: var(--dark-red);
+  cursor: pointer;
+}
+.apex-btn {
+  background-color: var(--primary-color);
+}
+.apex-btn:hover {
+  background-color: var(--btn-hover-color);
+}
+
+.product-image {
+  width: 11.25rem;
+}
+.horizontal-card-image {
+  height: 140px;
+  width: 90%;
+  object-fit: contain;
+}

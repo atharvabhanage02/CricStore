@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../../Context/Cart-Context/cart-context";
 import "./navbar.css";
 export const Navbar = () => {
+  const { state, dispatch } = useCart();
+  const { counter, totalPrice, wishList, cart } = state;
+  const wishListCount = wishList.length;
+  const cartCount = cart.length;
   return (
     <nav class="navbar">
       <div class="navbar-wrapper">
@@ -19,7 +24,7 @@ export const Navbar = () => {
             placeholder="Search"
           />
         </div>
-        
+
         <div class="user-activity-details">
           <a href="">
             {" "}
@@ -30,23 +35,22 @@ export const Navbar = () => {
             />
           </a>
           <div class="badges">
-            {/* <Link to="/Wishlist"> */}
+            <Link to="/Wishlist">
               <div class="icon wishlist-icon far fa-heart"></div>
-            {/* </Link> */}
+            </Link>
 
             <span class="badge-count badge-count-right badge-circle-blue">
-              4
+              {wishListCount}
             </span>
           </div>
           <div class="badges">
-            {/* <Link to="/Cart"> */}
+            <Link to="/Cart">
               <div class="icon wishlist-icon fas fa-shopping-cart"></div>
-            {/* </Link> */}
+            </Link>
             <span class="badge-count badge-count-right badge-circle-orange">
-              4
+              {cartCount}
             </span>
           </div>
-          
         </div>
       </div>
     </nav>
