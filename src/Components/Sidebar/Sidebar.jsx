@@ -31,7 +31,7 @@ export const Sidebar = () => {
                 id="low-to-high"
                 name="SORT_BY"
                 value="LOW_TO_HIGH"
-                checked={state.sortBy !== "LOW_TO_HIGH" ? false : true}
+                checked={state.sortBy == "LOW_TO_HIGH"}
                 className="radio-input"
                 onChange={(e) =>
                   dispatch({ type: e.target.name, payload: e.target.value })
@@ -45,7 +45,7 @@ export const Sidebar = () => {
                 id="high-to-low"
                 name="SORT_BY"
                 value="HIGH_TO_LOW"
-                checked={state.sortBy !== "HIGH_TO_LOW" ? false : true}
+                checked={state.sortBy == "HIGH_TO_LOW" }
                 onChange={(e) =>
                   dispatch({ type: e.target.name, payload: e.target.value })
                 }
@@ -64,7 +64,7 @@ export const Sidebar = () => {
               name="stockCheck"
               className="checkbox-input"
               value="CHECK_STOCK"
-              checked={state.outOfStock ? true : false}
+              checked={state.outOfStock}
               onClick={(e) =>
                 dispatch({ type: e.target.value, payload: e.target.checked })
               }
@@ -77,7 +77,7 @@ export const Sidebar = () => {
               id="stockfastDelivery"
               className="checkbox-input"
               value="CHECK_FAST_DELIVERY"
-              checked={state.fastDelivery ? true : false}
+              checked={state.fastDelivery}
               onClick={(e) =>
                 dispatch({ type: e.target.value, payload: e.target.checked })
               }
