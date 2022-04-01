@@ -57,7 +57,7 @@ export const CartCard = () => {
                   }}
                 >
                   {" "}
-                  <i class="add-cart-item-to-wishlist far fa-heart"></i>Add to
+                  <i class="add-cart-item-to-wishlist far fa-heart"></i>Move to
                   Wishlist
                 </button>
               </div>
