@@ -3,8 +3,10 @@ import "./cart-card.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export const CartCard = () => {
-  const { state, dispatch } = useCart();
-  const { cart } = state;
+  const {
+    state: { cart },
+    dispatch,
+  } = useCart();
   const notifyRemoveFromCart = () =>
     toast.error("Item Removed from Cart", {
       position: "bottom-right",

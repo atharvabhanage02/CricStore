@@ -4,8 +4,7 @@ import { Navbar } from "../../Components/Navbar/Navbar";
 import { useCart } from "../../Context/Cart-Context/cart-context";
 import "./cart.css";
 export const Cart = () => {
-  const { state, dispatch } = useCart();
-  const { cart } = state;
+  const { state:{cart}} = useCart();
   return (
     <div>
       <Navbar />

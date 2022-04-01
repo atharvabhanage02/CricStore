@@ -21,7 +21,6 @@ export const WishlistCard = () => {
       {wishList.length === 0 ? <h1>Please add Items in WishList</h1> : null}
       {wishList &&
         wishList.map((item) => (
-          // <div className="">
           <div class="wishlist-container-center">
             <div class="wishlist-item">
               <div class="product-image">
@@ -53,6 +52,7 @@ export const WishlistCard = () => {
                 </div>
                 <button
                   class="apex-btn apex-cart-btn card-btn fa fa-shopping-cart new-btn"
+                  disabled={!item.inStock}
                   onClick={() => {
                     dispatch({
                       type: "MOVE_TO_CART",
@@ -66,7 +66,6 @@ export const WishlistCard = () => {
               </div>
             </div>
           </div>
-          // </div>
         ))}
       <ToastContainer />
     </div>

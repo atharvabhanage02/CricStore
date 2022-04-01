@@ -4,8 +4,10 @@ import { useCart } from "../../Context/Cart-Context/cart-context";
 import { BsFillHeartFill, BsHeart } from "react-icons/bs";
 import "./productcard.css";
 export const ProductCard = () => {
-  const { state, dispatch } = useCart();
-  const { wishList } = state;
+  const {
+    state: { wishList },
+    dispatch,
+  } = useCart();
   const { products } = useProducts();
   return (
     <div className="all-products">
@@ -30,7 +32,6 @@ export const ProductCard = () => {
                   {item.description} || {item.rating}
                 </div>
               </div>
-              {/* <i className="icon card-icon far fa-heart"></i> */}
               <i className="icon ">
                 {wishList.some((product) => product.id === item.id) ? (
                   <BsFillHeartFill
@@ -65,7 +66,7 @@ export const ProductCard = () => {
             <div className="card-actions">
               <button
                 className="apex-btn apex-cart-btn card-btn fa fa-shopping-cart"
-                disabled={item.inStock ? false : true}
+                disabled={!item.inStock}
                 onClick={() => {
                   dispatch({
                     type: "ADD_TO_CART",
