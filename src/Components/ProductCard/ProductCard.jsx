@@ -1,7 +1,13 @@
 import React from "react";
 import { useProducts } from "../../Context/Product-Context/product-context";
+import { useCart } from "../../Context/Cart-Context/cart-context";
+import { BsFillHeartFill, BsHeart } from "react-icons/bs";
 import "./productcard.css";
 export const ProductCard = () => {
+  const {
+    state: { wishList },
+    dispatch,
+  } = useCart();
   const { products } = useProducts();
   return (
     <div className="all-products">
@@ -26,7 +32,31 @@ export const ProductCard = () => {
                   {item.description} || {item.rating}
                 </div>
               </div>
-              <i className="icon card-icon far fa-heart"></i>
+              <i className="icon ">
+                {wishList.some((product) => product.id === item.id) ? (
+                  <BsFillHeartFill
+                    className="card-icon"
+                    onClick={() => {
+                      dispatch({
+                        type: "REMOVE_FROM_WISHLIST",
+                        payload: item,
+                      });
+                      notifyRemoveFromWishList();
+                    }}
+                  />
+                ) : (
+                  <BsHeart
+                    className=""
+                    onClick={() => {
+                      dispatch({
+                        type: "ADD_TO_WISHLIST",
+                        payload: item,
+                      });
+                      notifyOnAddWishList();
+                    }}
+                  />
+                )}
+              </i>
             </div>
             <div className="product-price">
               <span className="discounted-price">₹{item.price}</span>
@@ -34,7 +64,17 @@ export const ProductCard = () => {
               <span className="product-discount">({item.discount}% OFF)</span>
             </div>
             <div className="card-actions">
-              <button className="apex-btn apex-cart-btn card-btn fa fa-shopping-cart">
+              <button
+                className="apex-btn apex-cart-btn card-btn fa fa-shopping-cart"
+                disabled={!item.inStock}
+                onClick={() => {
+                  dispatch({
+                    type: "ADD_TO_CART",
+                    payload: item,
+                  });
+                  notify();
+                }}
+              >
                 Add to Cart
               </button>
             </div>

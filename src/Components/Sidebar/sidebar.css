@@ -2,7 +2,6 @@
 *{
     padding: 0;
     margin: 0;
-    /* box-sizing: border-box; */
 }
 body{
     font-family: 'Lato', sans-serif;
@@ -17,8 +16,11 @@ body{
     top: 5rem;
     height: 100%;
     border-right: 2px solid black;
-    padding: 1.25rem;
-    width: 12rem;
+    padding: 0.5rem 1.25rem;
+    width: 12.5rem;
+}
+.clear-filters{
+    cursor: pointer;
 }
 .products-list{
     flex-grow: 1;
@@ -29,9 +31,8 @@ body{
 /* Sidebar Items */
 .product-filter{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    /* gap: 10px; */
-    margin-bottom: 0.5rem;
 }
 .product-filter>a{
     text-decoration: none;
@@ -54,17 +55,23 @@ body{
     flex-direction: column;
 }
 label>span{
-    font-size:15px;
+    font-size:16px;
 }
 .input-select{
     display: flex;
     align-items: center;
-    padding: 3px;
+    padding: 1px;
     column-gap: 10px;
 }
 .filter-feature{
     margin: 13px 2px;
 }
+.filter-actions{
+    border-bottom: 0;
+}
 .slider{
     max-width: 200px;
+}
+input[type="radio"]{
+    margin-right: 0rem;
 }

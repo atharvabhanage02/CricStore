@@ -1,0 +1,80 @@
+:root{
+    --wishlist-btn-hover : #5c5cf7;
+    ---grey-border : grey;
+    --heading-font : bolder;
+}
+.all-cart-products{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.87rem;
+}
+.horizontal-card{
+    width: 38rem;
+}
+.horizontal-image-container:hover{
+    transform: none;
+}
+.delete-cart-item , .add-cart-item-to-wishlist{
+    padding-right: 10px;
+}
+.apex-cart-btn{
+    padding: 10px;
+}
+.remove-btn{
+    background-color: var(--dark-red);
+}
+.remove-btn:hover{
+    background-color: var(--medium-red);
+}
+.wishlist-btn{
+    background-color: var(--primary-color);
+}
+.wishlist-btn:hover{
+    background-color: var(--wishlist-btn-hover);
+}
+/* Order-Details */
+.order-details{
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    width: 21.8rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 1.56rem 2.5rem;
+}
+.order-details>h3,label{
+    text-align: center;
+}
+.total-amount{
+    font-weight: bolder;
+    border-top: 1px solid var(---grey-border);
+    border-bottom: 1px solid var(---grey-border);
+}
+h2{
+    text-align: center;
+    margin: 2.5rem;
+}
+h3{
+    font-weight: var(--heading-font);
+    padding: 8px;
+    border-bottom: 1px solid var(---grey-border);
+}
+.login-btn{
+    margin-top: 1rem;
+}
+.order-price>div{
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+.login-btn{
+    color: white;
+    font-weight: bolder;
+    border: none;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}

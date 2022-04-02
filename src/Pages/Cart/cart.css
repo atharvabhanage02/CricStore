@@ -1,0 +1,10 @@
+.cart-items-wrapper{
+    margin-top: 15vh;
+}   
+.display-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3.75rem;
+}

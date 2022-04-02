@@ -2,15 +2,15 @@ import { useProducts } from "../../Context/Product-Context/product-context";
 import "./sidebar.css";
 export const Sidebar = () => {
   const { state, dispatch } = useProducts();
-  const productCategories = ["Bats", "Balls"]
+  const productCategories = ["Bats", "Balls"];
   return (
     <div>
       <aside className="sidebar">
         <div className="product-filter">
-          <h4>Filter</h4>
+          <h3 className="filter-actions">Filter</h3>
 
           <h3
-            style={{ cursor: "pointer" }}
+            className="filter-actions clear-filters"
             onClick={() => dispatch({ type: "CLEAR" })}
           >
             Clear
@@ -45,7 +45,7 @@ export const Sidebar = () => {
                 id="high-to-low"
                 name="SORT_BY"
                 value="HIGH_TO_LOW"
-                checked={state.sortBy == "HIGH_TO_LOW" }
+                checked={state.sortBy == "HIGH_TO_LOW"}
                 onChange={(e) =>
                   dispatch({ type: e.target.name, payload: e.target.value })
                 }
@@ -69,7 +69,7 @@ export const Sidebar = () => {
                 dispatch({ type: e.target.value, payload: e.target.checked })
               }
             />
-            <span>Show Products in Stock</span>
+            <span>Products in Stock</span>
           </label>
           <label class="input-select">
             <input
@@ -82,7 +82,7 @@ export const Sidebar = () => {
                 dispatch({ type: e.target.value, payload: e.target.checked })
               }
             />
-            <span>Products with Fast Delivery</span>
+            <span>Fast Delivery Products</span>
           </label>
         </div>
         <div className="product-category">
