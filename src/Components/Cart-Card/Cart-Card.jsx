@@ -1,5 +1,6 @@
 import { useCart } from "../../Context/Cart-Context/cart-context";
 import "./cart-card.css";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export const CartCard = () => {
@@ -31,6 +32,21 @@ export const CartCard = () => {
                 <div class="card-product-name">
                   <div class="product-name">{item.name}</div>
                   <div class="product-details">{item.description}</div>
+                </div>
+                <div className="increase-decrease-section">
+                  <AiOutlinePlusCircle
+                    className="plus-icon"
+                    onClick={() =>
+                      dispatch({ type: "INCREASE_QUANTITY", payload: item })
+                    }
+                  />
+                  {item.qty}
+                  <AiOutlineMinusCircle
+                    className="plus-icon"
+                    onClick={() =>
+                      dispatch({ type: "DECREASE_QUANTITY", payload: item })
+                    }
+                  />
                 </div>
               </div>
               <div class="product-price">

@@ -21,6 +21,7 @@ export const products = [
     rating: "4.5",
     inStock: true,
     fastDelivery: true,
+    qty: 0,
   },
   {
     _id: uuid(),
@@ -37,6 +38,7 @@ export const products = [
     rating: "3.5",
     inStock: true,
     fastDelivery: false,
+    qty: 0,
   },
   {
     _id: uuid(),
@@ -53,6 +55,7 @@ export const products = [
     rating: "4.2",
     inStock: true,
     fastDelivery: true,
+    qty: 0,
   },
   {
     _id: uuid(),
@@ -69,6 +72,7 @@ export const products = [
     rating: "3.1",
     inStock: false,
     fastDelivery: false,
+    qty: 0,
   },
   {
     _id: uuid(),
@@ -85,6 +89,7 @@ export const products = [
     rating: "2.6",
     inStock: false,
     fastDelivery: false,
+    qty: 0,
   },
   {
     _id: uuid(),
@@ -101,6 +106,7 @@ export const products = [
     rating: "1.2",
     inStock: true,
     fastDelivery: false,
+    qty: 0,
   },
   {
     _id: uuid(),
@@ -117,5 +123,6 @@ export const products = [
     rating: "3.0",
     inStock: true,
     fastDelivery: true,
+    qty: 0,
   },
 ];
