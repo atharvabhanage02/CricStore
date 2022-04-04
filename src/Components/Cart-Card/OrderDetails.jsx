@@ -1,5 +1,9 @@
 import "./cart-card.css";
+import { useCart } from "../../Context/Cart-Context/cart-context";
 export const OrderDetails = () => {
+  const {
+    state: { totalPrice, discountedPrice, finalPrice },
+  } = useCart();
   return (
     <div class="order-wrapper">
       <div class="order-details">
@@ -7,11 +11,11 @@ export const OrderDetails = () => {
         <div class="order-price">
           <div>
             <p>Price (2 items)</p>
-            <p>Rs.3,768</p>
+            <p>Rs.{totalPrice}</p>
           </div>
           <div>
             <p>Discount</p>
-            <p>-Rs.399</p>
+            <p>Rs.{discountedPrice} </p>
           </div>
           <div>
             <p>Delivery Charges</p>
@@ -19,11 +23,11 @@ export const OrderDetails = () => {
           </div>
           <div>
             <p>Coupon Discount</p>
-            <p>-Rs.199</p>
+            <p>-Rs.0</p>
           </div>
           <div class="total-amount">
             <p>Tota Amount</p>
-            <p>-Rs.3,170</p>
+            <p>Rs {finalPrice}</p>
           </div>
         </div>
         <button class="login-btn">Place Order</button>

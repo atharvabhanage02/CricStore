@@ -3,8 +3,8 @@ import {
   removeFromWishList,
   addToCart,
   removeFromCart,
-  moveToCart,
-  moveToWishList,
+  increaseQuantity,
+  decreaseQuantity,
 } from "../../Utils/cart-utils";
 export const cartReducer = (state, action) => {
   switch (action.type) {
@@ -20,6 +20,10 @@ export const cartReducer = (state, action) => {
       return addToCart(state, action);
     case "MOVE_TO_WISHLIST":
       return addToWishList(state, action);
+    case "INCREASE_QUANTITY":
+      return increaseQuantity(state, action);
+    case "DECREASE_QUANTITY":
+      return decreaseQuantity(state, action);
     default:
       return state;
   }

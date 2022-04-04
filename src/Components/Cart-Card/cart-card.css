@@ -78,3 +78,18 @@ h3{
     background-color: var(--primary-color);
     cursor: pointer;
 }
+
+.plus-icon{
+    font-size: 1.7rem;
+    padding: 3px;
+    cursor: pointer;
+
+}
+.increase-decrease-section{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.card-data{
+    gap:0.5rem;
+}

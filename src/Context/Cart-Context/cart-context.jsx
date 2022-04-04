@@ -10,7 +10,9 @@ const CartProvider = ({ children }) => {
     wishList: [],
     cart: [],
     counter: 0,
-    totalPrice: "",
+    totalPrice: 0,
+    discountedPrice: 0,
+    finalPrice: 0,
   });
 
   return (
