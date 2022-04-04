@@ -90,9 +90,6 @@ const increaseQuantity = (state, action) => {
 };
 
 const decreaseQuantity = (state, action) => {
-  const isProductPresent = state.cart.find(
-    (item) => item.id === action.payload.id
-  );
   return state.cart.find((item) => item.id === action.payload.id)
     ? state.cart.find((item) => item.id === action.payload.id).qty > 1
       ? {
