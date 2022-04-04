@@ -23,7 +23,7 @@ export const OrderDetails = () => {
           </div>
           <div>
             <p>Coupon Discount</p>
-            <p>-Rs.199</p>
+            <p>-Rs.0</p>
           </div>
           <div class="total-amount">
             <p>Tota Amount</p>
