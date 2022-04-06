@@ -8,6 +8,8 @@ import {
 import axios from "axios";
 import { Compose , filterSortBy , categoryFilter , ratingsFilter, inStockProducts, fastDeliveryProducts } from "../../Utils/filter";
 import { filterProductsReducer } from "../filter-reducer";
+import { useSearchParams } from "react-router-dom";
+
 
 const ProductContext = createContext();
 const useProducts = () => useContext(ProductContext);
@@ -16,7 +18,7 @@ const ProductProvider = ({ children }) => {
   const [productsList, setProductsList] = useState([]);
   const [state, dispatch] = useReducer(filterProductsReducer, {
     sortBy: "",
-    category: { Bats: false, Balls: false },
+    category: { Bats: false, Balls: false , Others: false },
     rating: "",
     outOfStock: false,
     fastDelivery: false,
@@ -43,6 +45,17 @@ const ProductProvider = ({ children }) => {
       }
     })();
   }, []);
+
+    const [searchParams] = useSearchParams();
+    const categorygot = searchParams.get("categories");
+    useEffect(() => {
+      categorygot &&
+        dispatch({
+          type: "FILTER_BY_CATEGORY",
+          payload: categorygot,
+        });
+      return () => dispatch({ type: "CLEAR" });
+    }, [categorygot]);
 
   return (
     <ProductContext.Provider
