@@ -2,6 +2,7 @@ import { useCart } from "../../Context/Cart-Context/cart-context";
 import "./wishlist.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 export const notifyRemoveFromWishList = () =>
   toast.error("Item Removed from WishList", {
     position: "bottom-right",
@@ -18,7 +19,14 @@ export const WishlistCard = () => {
 
   return (
     <div className="wishlist-wrapper">
-      {wishList.length === 0 ? <h1>Please add Items in WishList</h1> : null}
+      {wishList.length === 0 ? (
+        <div className="empty-cart-section">
+          <h1 className="empty-cart-txt">WishList Empty</h1>
+          <Link to="/productlisting">
+            <button className="apex-btn apex-primary-btn"> Shop Now</button>
+          </Link>
+        </div>
+      ) : null}
       {wishList &&
         wishList.map((item) => (
           <div class="wishlist-container-center">
