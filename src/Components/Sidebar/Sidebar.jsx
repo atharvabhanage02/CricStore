@@ -2,7 +2,7 @@ import { useProducts } from "../../Context/Product-Context/product-context";
 import "./sidebar.css";
 export const Sidebar = () => {
   const { state, dispatch } = useProducts();
-  const productCategories = ["Bats", "Balls"];
+  const productCategories = ["Bats", "Balls","Others"];
   return (
     <div>
       <aside className="sidebar">

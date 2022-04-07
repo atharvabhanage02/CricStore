@@ -65,6 +65,7 @@ label>span{
 }
 .filter-feature{
     margin: 13px 2px;
+    padding: 6px;
 }
 .filter-actions{
     border-bottom: 0;

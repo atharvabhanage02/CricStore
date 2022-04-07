@@ -3,6 +3,7 @@ import "./cart-card.css";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 export const CartCard = () => {
   const {
     state: { cart },
@@ -20,7 +21,14 @@ export const CartCard = () => {
     });
   return (
     <div class="all-cart-products">
-      {cart.length === 0 ? <h1>Please add Items in Cart</h1> : null}
+      {cart.length === 0 ? (
+        <div className="empty-cart-section">
+          <h1 className="empty-cart-txt">Cart Empty</h1>
+          <Link to="/productlisting">
+            <button className="shop-btn"> Shop Now</button>
+          </Link>
+        </div>
+      ) : null}
       {cart &&
         cart.map((item) => (
           <div class="horizontal-card">
