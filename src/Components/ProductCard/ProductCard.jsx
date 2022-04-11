@@ -2,6 +2,8 @@ import React from "react";
 import { useProducts } from "../../Context/Product-Context/product-context";
 import { useCart } from "../../Context/Cart-Context/cart-context";
 import { BsFillHeartFill, BsHeart } from "react-icons/bs";
+import { ToastContainer} from "react-toastify";
+import {notifyAddToWishList , notifyRemoveFromWishList , notifyAddToCart} from "../../Utils/Notifications/notifications"
 import "./productcard.css";
 export const ProductCard = () => {
   const {
@@ -41,7 +43,7 @@ export const ProductCard = () => {
                         type: "REMOVE_FROM_WISHLIST",
                         payload: item,
                       });
-                      notifyRemoveFromWishList();
+                      notifyRemoveFromWishList(item.name);
                     }}
                   />
                 ) : (
@@ -52,7 +54,7 @@ export const ProductCard = () => {
                         type: "ADD_TO_WISHLIST",
                         payload: item,
                       });
-                      notifyOnAddWishList();
+                      notifyAddToWishList(item.name);
                     }}
                   />
                 )}
@@ -72,7 +74,7 @@ export const ProductCard = () => {
                     type: "ADD_TO_CART",
                     payload: item,
                   });
-                  notify();
+                  notifyAddToCart(item.name);
                 }}
               >
                 Add to Cart
@@ -83,6 +85,7 @@ export const ProductCard = () => {
             ) : null}
           </div>
         ))}
+      <ToastContainer />
     </div>
   );
 };

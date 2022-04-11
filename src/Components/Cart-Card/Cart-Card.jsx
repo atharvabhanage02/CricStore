@@ -4,21 +4,19 @@ import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
+import {
+  notifyDecrementQuantity,
+  notifyIncrementQuantity,
+  notifyMoveToWishList,
+  notifyRemoveFromCart,
+} from "../../Utils/Notifications/notifications";
+
 export const CartCard = () => {
   const {
     state: { cart },
     dispatch,
   } = useCart();
-  const notifyRemoveFromCart = () =>
-    toast.error("Item Removed from Cart", {
-      position: "bottom-right",
-      theme: "colored",
-    });
-  const notifyMoveToWishList = () =>
-    toast.success("Item moved to WishList", {
-      position: "bottom-right",
-      theme: "colored",
-    });
+
   return (
     <div class="all-cart-products">
       {cart.length === 0 ? (
@@ -44,16 +42,18 @@ export const CartCard = () => {
                 <div className="increase-decrease-section">
                   <AiOutlinePlusCircle
                     className="plus-icon"
-                    onClick={() =>
-                      dispatch({ type: "INCREASE_QUANTITY", payload: item })
-                    }
+                    onClick={() => {
+                      dispatch({ type: "INCREASE_QUANTITY", payload: item });
+                      notifyIncrementQuantity(item.name);
+                    }}
                   />
                   {item.qty}
                   <AiOutlineMinusCircle
                     className="plus-icon"
-                    onClick={() =>
-                      dispatch({ type: "DECREASE_QUANTITY", payload: item })
-                    }
+                    onClick={() => {
+                      dispatch({ type: "DECREASE_QUANTITY", payload: item });
+                      notifyDecrementQuantity(item.name);
+                    }}
                   />
                 </div>
               </div>
@@ -67,7 +67,7 @@ export const CartCard = () => {
                   class="apex-btn apex-cart-btn card-btn remove-btn"
                   onClick={() => {
                     dispatch({ type: "REMOVE_FROM_CART", payload: item });
-                    notifyRemoveFromCart();
+                    notifyRemoveFromCart(item.name);
                   }}
                 >
                   <i class="delete-cart-item far fa-trash-alt"></i>Remove
@@ -77,7 +77,7 @@ export const CartCard = () => {
                   class="apex-btn apex-cart-btn card-btn wishlist-btn"
                   onClick={() => {
                     dispatch({ type: "MOVE_TO_WISHLIST", payload: item });
-                    notifyMoveToWishList();
+                    notifyMoveToWishList(item.name);
                   }}
                 >
                   {" "}
