@@ -44,18 +44,18 @@ const Home = () => {
         </div>
         <div className="quick-links">
           <h3 className="footer-headings">Quick Links</h3>
-          <a href="./authentication/login.html" className="page-links">
+          <Link to="/login" className="page-links">
             Login/SignUp
-          </a>
-          <a href="./products/products.html" className="page-links">
+          </Link>
+          <Link to="/productlisting" className="page-links">
             Product Page
-          </a>
-          <a href="./wishlist/wishlist.html" className="page-links">
+          </Link>
+          <Link to="/wishlist" className="page-links">
             Wishlist
-          </a>
-          <a href="./cart/cart.html" className="page-links">
+          </Link>
+          <Link to="/cart" className="page-links">
             Cart
-          </a>
+          </Link>
         </div>
         <div className="contact-us">
           <h3 className="footer-headings">Contact Us</h3>

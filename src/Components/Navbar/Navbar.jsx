@@ -10,9 +10,9 @@ export const Navbar = () => {
     <nav class="navbar">
       <div class="navbar-wrapper">
         <div class="ecom-title">
-          <a href="" class="ecom-name">
+          <Link class="ecom-name" to="/">
             CricStore
-          </a>
+          </Link>
         </div>
 
         <div class="search-container">
