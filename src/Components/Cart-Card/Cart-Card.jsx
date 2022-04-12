@@ -20,10 +20,10 @@ export const CartCard = () => {
   return (
     <div className="all-cart-products">
       {cart.length === 0 ? (
-        <div classNameName="empty-cart-section">
-          <h1 classNameName="empty-cart-txt">Cart Empty</h1>
+        <div className="empty-cart-section">
+          <h1 className="empty-cart-txt">Cart Empty</h1>
           <Link to="/productlisting">
-            <button classNameName="shop-btn"> Shop Now</button>
+            <button className="shop-btn"> Shop Now</button>
           </Link>
         </div>
       ) : null}
@@ -39,9 +39,9 @@ export const CartCard = () => {
                   <div className="product-name">{item.name}</div>
                   <div className="product-details">{item.description}</div>
                 </div>
-                <div classNameName="increase-decrease-section">
+                <div className="increase-decrease-section">
                   <AiOutlinePlusCircle
-                    classNameName="plus-icon"
+                    className="plus-icon"
                     onClick={() => {
                       dispatch({ type: "INCREASE_QUANTITY", payload: item });
                       notifyIncrementQuantity(item.name);
@@ -49,7 +49,7 @@ export const CartCard = () => {
                   />
                   {item.qty}
                   <AiOutlineMinusCircle
-                    classNameName="plus-icon"
+                    className="plus-icon"
                     onClick={() => {
                       dispatch({ type: "DECREASE_QUANTITY", payload: item });
                       notifyDecrementQuantity(item.name);

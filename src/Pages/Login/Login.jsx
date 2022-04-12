@@ -10,16 +10,21 @@ const Login = () => {
           <h1>Login</h1>
           <div class="login-credentials">
             <div class="email">
-              <p for="">Email Address</p>
+              <p for="email-label">Email Address</p>
               <input
                 type="email"
                 class="email-validate"
+                id="email-label"
                 placeholder="Enter Valid Email ID"
               />
             </div>
             <div class="password">
-              <p for="">Password</p>
-              <input type="password" class="pswrd-validate" />
+              <p for="password-label">Password</p>
+              <input
+                type="password"
+                class="pswrd-validate"
+                id="password-label"
+              />
             </div>
             <div class="reset-details">
               <div>
