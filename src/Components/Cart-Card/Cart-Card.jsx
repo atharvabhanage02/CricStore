@@ -18,30 +18,30 @@ export const CartCard = () => {
   } = useCart();
 
   return (
-    <div class="all-cart-products">
+    <div className="all-cart-products">
       {cart.length === 0 ? (
-        <div className="empty-cart-section">
-          <h1 className="empty-cart-txt">Cart Empty</h1>
+        <div classNameName="empty-cart-section">
+          <h1 classNameName="empty-cart-txt">Cart Empty</h1>
           <Link to="/productlisting">
-            <button className="shop-btn"> Shop Now</button>
+            <button classNameName="shop-btn"> Shop Now</button>
           </Link>
         </div>
       ) : null}
       {cart &&
         cart.map((item) => (
-          <div class="horizontal-card">
-            <div class="horizontal-image-container">
-              <img src={item.image} class="horizontal-card-image" alt="" />
+          <div className="horizontal-card">
+            <div className="horizontal-image-container">
+              <img src={item.image} className="horizontal-card-image" alt="" />
             </div>
-            <div class="card-data">
-              <div class="card-details-horizontal">
-                <div class="card-product-name">
-                  <div class="product-name">{item.name}</div>
-                  <div class="product-details">{item.description}</div>
+            <div className="card-data">
+              <div className="card-details-horizontal">
+                <div className="card-product-name">
+                  <div className="product-name">{item.name}</div>
+                  <div className="product-details">{item.description}</div>
                 </div>
-                <div className="increase-decrease-section">
+                <div classNameName="increase-decrease-section">
                   <AiOutlinePlusCircle
-                    className="plus-icon"
+                    classNameName="plus-icon"
                     onClick={() => {
                       dispatch({ type: "INCREASE_QUANTITY", payload: item });
                       notifyIncrementQuantity(item.name);
@@ -49,7 +49,7 @@ export const CartCard = () => {
                   />
                   {item.qty}
                   <AiOutlineMinusCircle
-                    className="plus-icon"
+                    classNameName="plus-icon"
                     onClick={() => {
                       dispatch({ type: "DECREASE_QUANTITY", payload: item });
                       notifyDecrementQuantity(item.name);
@@ -57,31 +57,31 @@ export const CartCard = () => {
                   />
                 </div>
               </div>
-              <div class="product-price">
-                <span class="discounted-price">₹{item.price}</span>
-                <span class="actual-price">₹{item.discountedPrice}</span>
-                <span class="product-discount">({item.discount} OFF)</span>
+              <div className="product-price">
+                <span className="discounted-price">₹{item.price}</span>
+                <span className="actual-price">₹{item.discountedPrice}</span>
+                <span className="product-discount">({item.discount} OFF)</span>
               </div>
-              <div class="card-actions">
+              <div className="card-actions">
                 <button
-                  class="apex-btn apex-cart-btn card-btn remove-btn"
+                  className="apex-btn apex-cart-btn card-btn remove-btn"
                   onClick={() => {
                     dispatch({ type: "REMOVE_FROM_CART", payload: item });
                     notifyRemoveFromCart(item.name);
                   }}
                 >
-                  <i class="delete-cart-item far fa-trash-alt"></i>Remove
+                  <i className="delete-cart-item far fa-trash-alt"></i>Remove
                 </button>
 
                 <button
-                  class="apex-btn apex-cart-btn card-btn wishlist-btn"
+                  className="apex-btn apex-cart-btn card-btn wishlist-btn"
                   onClick={() => {
                     dispatch({ type: "MOVE_TO_WISHLIST", payload: item });
                     notifyMoveToWishList(item.name);
                   }}
                 >
                   {" "}
-                  <i class="add-cart-item-to-wishlist far fa-heart"></i>Move to
+                  <i className="add-cart-item-to-wishlist far fa-heart"></i>Move to
                   Wishlist
                 </button>
               </div>
