@@ -4,6 +4,9 @@
 }
 :root {
   --card-icon-wishList: red;
+  --btn-text-color: black;
+  --go-to-cart-outline: #df9712;
+  --color-white:white;
 }
 .basic-vertical-card {
   width: 13rem;
@@ -25,4 +28,19 @@
 }
 .card-icon {
   color: var(--card-icon-wishList);
+}
+.underline-none {
+  text-decoration: none;
+  color: var(--btn-text-color);
+  text-align: center;
+  border: 1px solid var(--go-to-cart-outline);
+  border-radius: 0.8rem;
+  font-size: 1.12rem;
+  padding: var(--apex-btn-padding);
+  cursor: pointer;
+  margin-right: 1rem;
+  background-color: var(--color-white);
+}
+.underline-none:hover {
+  background-color: var(--color-white);
 }

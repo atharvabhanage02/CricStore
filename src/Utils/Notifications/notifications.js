@@ -7,9 +7,6 @@ const notifyRemoveFromWishList = (name) => {
   toast.error(`Item ${name} removed from WishList`, { ...base });
 };
 
-const notifyAddToCart = (name) => {
-  toast.success(`Item ${name} added to Cart`, { ...base });
-};
 const notifyMoveToCart = (name) => {
   toast.success(`Item ${name} moved to Cart`, { ...base });
 };
@@ -36,7 +33,6 @@ const notifyDecrementQuantity = (name) => {
 export {
   notifyAddToWishList,
   notifyRemoveFromWishList,
-  notifyAddToCart,
   notifyMoveToCart,
   notifyRemoveFromCart,
   notifyMoveToWishList,

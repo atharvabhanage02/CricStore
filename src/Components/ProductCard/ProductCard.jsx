@@ -2,15 +2,34 @@ import React from "react";
 import { useProducts } from "../../Context/Product-Context/product-context";
 import { useCart } from "../../Context/Cart-Context/cart-context";
 import { BsFillHeartFill, BsHeart } from "react-icons/bs";
-import { ToastContainer} from "react-toastify";
-import {notifyAddToWishList , notifyRemoveFromWishList , notifyAddToCart} from "../../Utils/Notifications/notifications"
+import { ToastContainer, toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  notifyAddToWishList,
+  notifyRemoveFromWishList,
+} from "../../Utils/Notifications/notifications";
 import "./productcard.css";
+import { useAuth } from "../../Context/Auth/auth-context";
 export const ProductCard = () => {
   const {
-    state: { wishList },
+    state: { wishList, cart },
     dispatch,
   } = useCart();
   const { products } = useProducts();
+  const {
+    login: { isLogIn },
+  } = useAuth();
+  const navigate = useNavigate();
+  const notifyAddToCart = (name) => {
+    if (isLogIn) {
+      toast.success(`Item ${name} added to Cart`, {
+        position: "bottom-right",
+        theme: "colored",
+      });
+    } else {
+      navigate("/login");
+    }
+  };
   return (
     <div className="all-products">
       {products &&
@@ -66,19 +85,29 @@ export const ProductCard = () => {
               <span className="product-discount">({item.discount}% OFF)</span>
             </div>
             <div className="card-actions">
-              <button
-                className="apex-btn apex-cart-btn card-btn fa fa-shopping-cart"
-                disabled={!item.inStock}
-                onClick={() => {
-                  dispatch({
-                    type: "ADD_TO_CART",
-                    payload: item,
-                  });
-                  notifyAddToCart(item.name);
-                }}
-              >
-                Add to Cart
-              </button>
+              {!cart.find((prod) => prod.id === item.id) ? (
+                <button
+                  className="apex-btn apex-cart-btn card-btn fa fa-shopping-cart"
+                  disabled={item.inStock ? false : true}
+                  onClick={() => {
+                    dispatch({
+                      type: "ADD_TO_CART",
+                      payload: item,
+                    });
+                    notifyAddToCart(item.name);
+                  }}
+                >
+                  Add to Cart
+                </button>
+              ) : (
+                <Link
+                  disabled={!isLogIn}
+                  className=" apex-cart-btn card-btn fa fa-shopping-cart underline-none"
+                  to="/cart"
+                >
+                  Go to Cart
+                </Link>
+              )}
             </div>
             {!item.inStock ? (
               <span className="out-of-stock">Out Of Stock</span>
