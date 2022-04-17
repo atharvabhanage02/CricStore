@@ -16,13 +16,13 @@ export const ProductCard = () => {
     dispatch,
   } = useCart();
   const { products } = useProducts();
-  const { login: isLogIn } = useAuth();
+  const {
+    login: { isLogIn },
+  } = useAuth();
   const navigate = useNavigate();
-
+  console.log("islogin :", isLogIn);
   const notifyAddToCart = (name) => {
-    console.log("Item is clicked");
     if (isLogIn) {
-      console.log("User is logged in");
       toast.success(`Item ${name} added to Cart`, {
         position: "bottom-right",
         theme: "colored",
