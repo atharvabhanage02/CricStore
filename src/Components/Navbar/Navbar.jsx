@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link , useLocation } from "react-router-dom";
 import { useCart } from "../../Context/Cart-Context/cart-context";
 import "./navbar.css";
+import { useAuth } from "../../Context/Auth/auth-context";
 export const Navbar = () => {
   const { state, dispatch } = useCart();
   const { counter, totalPrice, wishList, cart } = state;
   const wishListCount = wishList.length;
   const cartCount = cart.length;
+  const { login, setLogin } = useAuth();
+  const { pathname } = useLocation();
   return (
     <nav className="navbar">
       <div className="navbar-wrapper">
@@ -26,14 +29,13 @@ export const Navbar = () => {
         </div>
 
         <div className="user-activity-details">
-          <a href="">
-            {" "}
-            <img
-              src="Assets/profile.png"
-              className="apex-avatar avatar-round-sm"
-              alt=""
-            />
-          </a>
+          {!login.isLogIn &&
+          !(pathname === "/login") &&
+          !(pathname === "/signup") ? (
+            <Link className="apex-btn apex-secondary-btn" to="/login">
+              Login
+            </Link>
+          ) : null}
           <div className="badges">
             <Link to="/Wishlist">
               <div className="icon wishlist-icon far fa-heart"></div>

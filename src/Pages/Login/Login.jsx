@@ -1,7 +1,41 @@
 import { Navbar } from "../../Components/Navbar/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./login.css";
+import { useState } from "react";
+import axios from "axios";
+import { useAuth } from "../../Context/Auth/auth-context";
 const Login = () => {
+  const { login, setLogin } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [logUser, setLogUser] = useState({
+    email: "",
+    pass: "",
+  });
+  const guestLogin = {
+    email: "adarshbalika@gmail.com",
+    pass: "adarshbalika",
+  };
+  const loginHandler = ({ email, pass }, setLogin, navigate) => {
+    (async () => {
+      try {
+        const { data, status } = await axios.post("/api/auth/login", {
+          email: email,
+          password: pass,
+        });
+        if (status === 200) {
+          localStorage.setItem("token", JSON.stringify(data.encodedToken));
+          setLogin({
+            tokenValue: JSON.stringify(data.encodedToken),
+            isLogIn: true,
+          });
+          navigate("/");
+        }
+      } catch (error) {
+        console.log("Error occured", error);
+      }
+    })();
+  };
   return (
     <div>
       <Navbar />
@@ -36,7 +70,15 @@ const Login = () => {
                 Forget your Password?
               </a>
             </div>
-            <button class="login-btn">Login</button>
+            <button
+              class="login-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                loginHandler(guestLogin, setLogin, navigate);
+              }}
+            >
+              Login
+            </button>
             <Link class="have-account-link" to="/Signup">
               Create new Account?
             </Link>

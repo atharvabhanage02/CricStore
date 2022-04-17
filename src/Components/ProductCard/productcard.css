@@ -26,3 +26,18 @@
 .card-icon {
   color: var(--card-icon-wishList);
 }
+.underline-none {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  border: 1px solid #df9712;
+  border-radius: 0.8rem;
+  font-size: 1.12rem;
+  padding: var(--apex-btn-padding);
+  cursor: pointer;
+  margin-right: 1rem;
+  background-color: white;
+}
+.underline-none:hover {
+  background-color: white;
+}
