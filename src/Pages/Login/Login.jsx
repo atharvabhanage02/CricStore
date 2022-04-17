@@ -3,11 +3,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./login.css";
 import { useState } from "react";
 import axios from "axios";
+import "../../Components/ProductCard/productcard.css";
 import { useAuth } from "../../Context/Auth/auth-context";
 const Login = () => {
-  const { login, setLogin } = useAuth();
+  const { setLogin } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const [logUser, setLogUser] = useState({
     email: "",
     pass: "",
@@ -70,14 +70,15 @@ const Login = () => {
                 Forget your Password?
               </a>
             </div>
+            <button class="login-btn">Login</button>
             <button
-              class="login-btn"
+              class="login-btn login-guest-btn"
               onClick={(e) => {
                 e.preventDefault();
                 loginHandler(guestLogin, setLogin, navigate);
               }}
             >
-              Login
+              Login as Guest
             </button>
             <Link class="have-account-link" to="/Signup">
               Create new Account?

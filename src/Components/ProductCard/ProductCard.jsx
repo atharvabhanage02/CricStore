@@ -20,7 +20,6 @@ export const ProductCard = () => {
     login: { isLogIn },
   } = useAuth();
   const navigate = useNavigate();
-  console.log("islogin :", isLogIn);
   const notifyAddToCart = (name) => {
     if (isLogIn) {
       toast.success(`Item ${name} added to Cart`, {
@@ -28,7 +27,6 @@ export const ProductCard = () => {
         theme: "colored",
       });
     } else {
-      console.log("not logged in");
       navigate("/login");
     }
   };
