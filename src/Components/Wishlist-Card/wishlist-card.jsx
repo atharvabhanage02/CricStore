@@ -2,17 +2,12 @@ import { useCart } from "../../Context/Cart-Context/cart-context";
 import "./wishlist.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  notifyMoveToCart,
+  notifyRemoveFromWishList,
+} from "../../Utils/Notifications/notifications";
 import { Link } from "react-router-dom";
-export const notifyRemoveFromWishList = () =>
-  toast.error("Item Removed from WishList", {
-    position: "bottom-right",
-    theme: "colored",
-  });
-const notifyMoveToCart = () =>
-  toast.success("Item moved to Cart", {
-    position: "bottom-right",
-    theme: "colored",
-  });
+
 export const WishlistCard = () => {
   const { state, dispatch } = useCart();
   const { wishList, counter, totalPrice } = state;
@@ -48,7 +43,7 @@ export const WishlistCard = () => {
                           type: "REMOVE_FROM_WISHLIST",
                           payload: item,
                         });
-                        notifyRemoveFromWishList();
+                        notifyRemoveFromWishList(item.name);
                       }}
                     ></i>
                   </div>
@@ -66,7 +61,7 @@ export const WishlistCard = () => {
                       type: "MOVE_TO_CART",
                       payload: item,
                     });
-                    notifyMoveToCart();
+                    notifyMoveToCart(item.name);
                   }}
                 >
                   Add to Cart
