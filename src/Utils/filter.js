@@ -42,5 +42,30 @@ const ratingsFilter = (state, data) => {
       return data;
   }
 };
+const searchHandler = (state, data) => {
+  if (state.search.length !== 0) {
+    console.log("into if again");
+    return [...data].filter((item) =>
+      item.name.toLowerCase().includes(state.search)
+    );
+  }
+  return data;
+};
 
-export { Compose, filterSortBy, categoryFilter, ratingsFilter , inStockProducts , fastDeliveryProducts };
+const sliderFilter = (state, data) => {
+  if (state.sliderVal === 0) {
+    return data;
+  }
+  return data.filter((item) => Number(item.price) <= state.sliderVal);
+};
+
+export {
+  Compose,
+  filterSortBy,
+  categoryFilter,
+  ratingsFilter,
+  inStockProducts,
+  fastDeliveryProducts,
+  searchHandler,
+  sliderFilter,
+};

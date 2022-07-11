@@ -2,7 +2,7 @@ import { useProducts } from "../../Context/Product-Context/product-context";
 import "./sidebar.css";
 export const Sidebar = () => {
   const { state, dispatch } = useProducts();
-  const productCategories = ["Bats", "Balls","Others"];
+  const productCategories = ["Bats", "Balls", "Others"];
   return (
     <div>
       <aside className="sidebar">
@@ -18,8 +18,19 @@ export const Sidebar = () => {
         </div>
         <div className="filter-by-price">
           <div className="slider-wrapper">
-            <input type="range" className="slider" min="0" max="100" />
-            <h4 className="slider-value">50</h4>
+            <input
+              type="range"
+              className="slider"
+              value={state.sliderVal}
+              min="200"
+              max="3000"
+              step="200"
+              defaultValue="3000"
+              onChange={(e) =>
+                dispatch({ type: "SLIDER", payload: e.target.value })
+              }
+            />
+            <h4 className="slider-value">{state.sliderVal}</h4>
           </div>
         </div>
         <div className="product-sort">

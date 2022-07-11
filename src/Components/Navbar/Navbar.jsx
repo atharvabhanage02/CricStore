@@ -2,12 +2,14 @@ import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../../Context/Cart-Context/cart-context";
 import "./navbar.css";
 import { useAuth } from "../../Context/Auth/auth-context";
+import { useProducts } from "../../Context/Product-Context/product-context";
 export const Navbar = () => {
   const { state } = useCart();
   const { wishList, cart } = state;
   const wishListCount = wishList.length;
   const cartCount = cart.length;
   const { login } = useAuth();
+  const { state: prodState, dispatch: prodDispatch } = useProducts();
   return (
     <nav className="navbar">
       <div className="navbar-wrapper">
@@ -24,6 +26,10 @@ export const Navbar = () => {
             className="search-bar"
             aria-hidden="true"
             placeholder="Search"
+            value={prodState.search}
+            onChange={(e) =>
+              prodDispatch({ type: "SEARCH", payload: e.target.value })
+            }
           />
         </div>
 

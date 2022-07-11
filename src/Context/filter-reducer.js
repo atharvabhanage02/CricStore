@@ -8,7 +8,7 @@ export function filterProductsReducer(state, action) {
 
     case "CHECK_FAST_DELIVERY":
       return { ...state, fastDelivery: action.payload };
-      
+
     case "FILTER_BY_CATEGORY":
       return {
         ...state,
@@ -22,11 +22,20 @@ export function filterProductsReducer(state, action) {
         ...state,
         rating: action.payload,
       };
+    case "SEARCH":
+      return {
+        ...state,
+        search: action.payload,
+      };
+    case "SLIDER":
+      return { ...state, sliderVal: action.payload };
     case "CLEAR":
       return {
         sortBy: "",
         category: { Bats: false, Balls: false },
         rating: "",
+        sliderVal: 0,
+        search: "",
       };
     default:
       return state;
