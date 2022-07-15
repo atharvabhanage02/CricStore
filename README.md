@@ -78,6 +78,7 @@ Start the server
     - Add product to Wishlist
     - Move product from Wishlist to Cart
     - Remove product from Cart
+- Search Products of your choice
 
 ## 🔗 Links
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/atharva-bhanage-02/)
