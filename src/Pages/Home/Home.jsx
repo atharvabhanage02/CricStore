@@ -2,6 +2,7 @@ import { Navbar } from "../../Components/Navbar/Navbar";
 import "./home.css";
 import { Link } from "react-router-dom";
 import { categories } from "../../backend/db/categories";
+import { ToastContainer } from "react-toastify";
 const Home = () => {
   return (
     <div>

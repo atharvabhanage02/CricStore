@@ -4,6 +4,11 @@ import "./navbar.css";
 import { useAuth } from "../../Context/Auth/auth-context";
 import { useProducts } from "../../Context/Product-Context/product-context";
 import { FiLogOut } from "react-icons/fi";
+import {
+  notifyAddToWishList,
+  notifyOnLogout,
+} from "../../Utils/Notifications/notifications";
+import { ToastContainer } from "react-toastify";
 export const Navbar = () => {
   const { state } = useCart();
   const { wishList, cart } = state;
@@ -59,7 +64,9 @@ export const Navbar = () => {
           ) : (
             <FiLogOut
               className="icon wishlist-icon"
-              onClick={() => logOutUser()}
+              onClick={() => {
+                logOutUser();
+              }}
             />
           )}
         </div>

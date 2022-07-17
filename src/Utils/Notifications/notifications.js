@@ -30,6 +30,10 @@ const notifyDecrementQuantity = (name) => {
   });
 };
 
+const notifyOnLogout = () => {
+  toast.error("Logged Out Successfully!", { ...base });
+};
+
 export {
   notifyAddToWishList,
   notifyRemoveFromWishList,
@@ -38,4 +42,5 @@ export {
   notifyMoveToWishList,
   notifyIncrementQuantity,
   notifyDecrementQuantity,
+  notifyOnLogout,
 };

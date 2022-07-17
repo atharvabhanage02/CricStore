@@ -1,6 +1,10 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { logoutHandler } from "../../Utils/logout";
+import {
+  notifyAddToWishList,
+  notifyOnLogout,
+} from "../../Utils/Notifications/notifications";
 const AuthContext = createContext();
 const isTokenPresent = localStorage.getItem("token") ? true : false;
 const AuthProvider = ({ children }) => {
