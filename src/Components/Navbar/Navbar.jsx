@@ -3,12 +3,13 @@ import { useCart } from "../../Context/Cart-Context/cart-context";
 import "./navbar.css";
 import { useAuth } from "../../Context/Auth/auth-context";
 import { useProducts } from "../../Context/Product-Context/product-context";
+import { FiLogOut } from "react-icons/fi";
 export const Navbar = () => {
   const { state } = useCart();
   const { wishList, cart } = state;
   const wishListCount = wishList.length;
   const cartCount = cart.length;
-  const { login } = useAuth();
+  const { login, logOutUser } = useAuth();
   const { state: prodState, dispatch: prodDispatch } = useProducts();
   return (
     <nav className="navbar">
@@ -34,11 +35,6 @@ export const Navbar = () => {
         </div>
 
         <div className="user-activity-details">
-          {!login.isLogIn ? (
-            <Link className="navbar-login-btn" to="/login">
-              Login
-            </Link>
-          ) : null}
           <div className="badges">
             <Link to="/Wishlist">
               <div className="icon wishlist-icon far fa-heart"></div>
@@ -56,6 +52,16 @@ export const Navbar = () => {
               {cartCount}
             </span>
           </div>
+          {!login.isLogIn ? (
+            <Link className="navbar-login-btn" to="/login">
+              Login
+            </Link>
+          ) : (
+            <FiLogOut
+              className="icon wishlist-icon"
+              onClick={() => logOutUser()}
+            />
+          )}
         </div>
       </div>
     </nav>
