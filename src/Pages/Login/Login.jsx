@@ -29,7 +29,7 @@ const Login = () => {
             tokenValue: JSON.stringify(data.encodedToken),
             isLogIn: true,
           });
-          navigate("/");
+          navigate("/productlisting");
         }
       } catch (error) {
         console.log("Error occured", error);

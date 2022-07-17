@@ -69,11 +69,13 @@ export const ProductCard = () => {
                   <BsHeart
                     className=""
                     onClick={() => {
-                      dispatch({
-                        type: "ADD_TO_WISHLIST",
-                        payload: item,
-                      });
-                      notifyAddToWishList(item.name);
+                      isLogIn
+                        ? (dispatch({
+                            type: "ADD_TO_WISHLIST",
+                            payload: item,
+                          }),
+                          notifyAddToWishList(item.name))
+                        : navigate("/login");
                     }}
                   />
                 )}
@@ -90,11 +92,13 @@ export const ProductCard = () => {
                   className="apex-btn apex-cart-btn card-btn fa fa-shopping-cart"
                   disabled={item.inStock ? false : true}
                   onClick={() => {
-                    dispatch({
-                      type: "ADD_TO_CART",
-                      payload: item,
-                    });
-                    notifyAddToCart(item.name);
+                    isLogIn
+                      ? (dispatch({
+                          type: "ADD_TO_CART",
+                          payload: item,
+                        }),
+                        notifyAddToCart(item.name))
+                      : navigate("/login");
                   }}
                 >
                   Add to Cart
