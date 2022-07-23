@@ -3,20 +3,16 @@
     padding: 0;
     margin: 0;
 }
-body{
-    font-family: 'Lato', sans-serif;
-}
 .main-wrapper{
     display: flex;
 }
-/* Sidebar */
 .sidebar{
     position: fixed;
     flex-grow: 0;
     top: 5rem;
     height: 100%;
     border-right: 2px solid black;
-    padding: 0.5rem 1.25rem;
+    padding: 0rem 1.25rem;
     width: 12.5rem;
 }
 .clear-filters{
@@ -64,7 +60,7 @@ label>span{
     column-gap: 10px;
 }
 .filter-feature{
-    margin: 13px 2px;
+    margin: 10px 2px;
     padding: 6px;
 }
 .filter-actions{

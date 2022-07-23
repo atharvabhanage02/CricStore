@@ -1,5 +1,5 @@
-@import url("https://apex-ui.netlify.app/components/components.css");
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-body{
-    font-family: 'Lato', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+.App,
+body {
+  font-family: "Work Sans", sans-serif;
 }

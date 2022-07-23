@@ -16,6 +16,7 @@ export const Navbar = () => {
   const cartCount = cart.length;
   const { login, logOutUser } = useAuth();
   const { state: prodState, dispatch: prodDispatch } = useProducts();
+  const { pathname } = useLocation();
   return (
     <nav className="navbar">
       <div className="navbar-wrapper">
