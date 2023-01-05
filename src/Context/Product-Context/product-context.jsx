@@ -46,7 +46,7 @@ const ProductProvider = ({ children }) => {
   )(productsList);
 
   useEffect(() => {
-    (async () => {
+    setTimeout(async () => {
       try {
         const {
           data: { products },
@@ -55,7 +55,7 @@ const ProductProvider = ({ children }) => {
       } catch {
         console.error("ERROR AGAYA");
       }
-    })();
+    }, 1500);
   }, []);
 
   const [searchParams] = useSearchParams();

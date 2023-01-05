@@ -10,6 +10,7 @@ import {
 } from "../../Utils/Notifications/notifications";
 import "./productcard.css";
 import { useAuth } from "../../Context/Auth/auth-context";
+import { SkeletonCard } from "../Skeletons/SkeletonCard";
 export const ProductCard = () => {
   const {
     state: { wishList, cart },
@@ -32,6 +33,8 @@ export const ProductCard = () => {
   };
   return (
     <div className="all-products">
+      {products.length < 1 &&
+        [1, 2, 3, 4, 5, 6, 7,8].map((n) => <SkeletonCard key={n} />)}
       {products &&
         products.map((item) => (
           <div
