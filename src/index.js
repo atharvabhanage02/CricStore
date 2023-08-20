@@ -7,6 +7,8 @@ import { ProductProvider } from "./Context/Product-Context/product-context";
 import { BrowserRouter } from "react-router-dom";
 import { CartProvider } from "./Context/Cart-Context/cart-context";
 import { AuthProvider } from "./Context/Auth/auth-context";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 // Call make Server
 makeServer();
@@ -14,13 +16,15 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-        <CartProvider>
-          <ProductProvider>
-            <App />
-          </ProductProvider>
-        </CartProvider>
-      </AuthProvider>
+      <Provider store={store}>
+        <AuthProvider>
+          <CartProvider>
+            <ProductProvider>
+              <App />
+            </ProductProvider>
+          </CartProvider>
+        </AuthProvider>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
