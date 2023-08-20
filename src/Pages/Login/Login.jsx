@@ -1,18 +1,12 @@
 import { Navbar } from "../../Components/Navbar/Navbar";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
-import { useState } from "react";
 import axios from "axios";
 import "../../Components/ProductCard/productcard.css";
 import { useAuth } from "../../Context/Auth/auth-context";
-import { ToastContainer } from "react-toastify";
 const Login = () => {
   const { setLogin } = useAuth();
   const navigate = useNavigate();
-  const [logUser, setLogUser] = useState({
-    email: "",
-    pass: "",
-  });
   const guestLogin = {
     email: "adarshbalika@gmail.com",
     pass: "adarshbalika",
